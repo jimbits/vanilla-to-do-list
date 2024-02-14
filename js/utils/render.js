@@ -1,3 +1,5 @@
-function render(items, container) {}
+function render(template, domContainer) {
+	return null
+}
 
-export { render };
+export { render }
