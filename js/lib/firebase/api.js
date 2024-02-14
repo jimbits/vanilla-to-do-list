@@ -13,4 +13,10 @@ async function getToDoData() {
 	return await dataSnapshot.val()
 }
 
+async function getToDoItem() {}
+
+async function updateToDo() {}
+
+async function deleteToDo() {}
+
 export { getToDoData }

@@ -1,5 +1,5 @@
 function render(template, domContainer) {
-	return null
+	return domContainer.appendChild(template)
 }
 
 export { render }
