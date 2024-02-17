@@ -1,6 +1,6 @@
-import { toElement } from './../utils/toElement'
+import { toElement } from '../lib/utils/toElement'
 
-function toDoItemTemplate({ todo, category, status, uid }) {
+function itemTemplate({ todo, category, status, uid }) {
 	const template = `
     <aside  >
     <nav>
@@ -91,4 +91,4 @@ function onEditToDo(e) {
 	console.log(e.currentTarget)
 }
 
-export { toDoItemTemplate }
+export { itemTemplate }
