@@ -2,7 +2,7 @@ import {toElement} from '../lib/utils/toElement'
 
 function itemView({todo, category, status, uid, description}) {
 	const template = `
-    <aside class="bg-gradient-to-r mb-2 from-white from-30% to-zinc-100/50 to-40%   py-2 pl-5 pr-3  border-l-4  border-b border-b-zinc-100 border-zinc-400/60">
+    <aside class="bg-gradient-to-r mb-3 from-white from-30% to-zinc-100/50 to-40%   py-2 pl-5 pr-3  border-l-4  border-b border-b-zinc-100 border-zinc-400/60">
     <nav class="flex items-center justify-between mb-2">
         <div class="text-center">
             <h2 class="w-fit text-xs text-zinc-400 font-semibold leading-[10px]">${category}</h2>

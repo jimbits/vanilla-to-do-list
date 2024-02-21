@@ -4,7 +4,6 @@ import {read} from '../models/readModel'
 let store
 async function itemController() {
 	store = [...Object.values(await read())]
-
 	render(store)
 	config()
 }
@@ -16,7 +15,7 @@ function render(items) {
 		const markup = itemView(item)
 		div.append(markup)
 	})
-	container.append(div)
+	container.replaceChildren(div)
 }
 function config() {
 	// toDo.querySelector('#delete').addEventListener('click', onDeleteToDo)
