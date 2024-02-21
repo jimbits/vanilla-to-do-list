@@ -1,12 +1,12 @@
-import { toElement } from '../lib/utils/toElement'
-import { nanoid } from 'nanoid'
+import {toElement} from '../lib/utils/toElement'
+
 let dialogElem
 
-function createItem(dialog) {
+function editView({todo, category, status, uid, dialog}) {
 	dialogElem = dialog
 
 	const template = `
-	<section class=" w-full pb-14 ">
+	<section class="w-full pb-14 ">
 	<nav class="flex flex-end mb-8">
 		<button
 			id="close"
@@ -20,13 +20,13 @@ function createItem(dialog) {
 	</nav>
 	<header>
 		<h1 class="text-center font-semibold text-zinc-700 text-3xl">
-			Create Item
+			Edit Existing Item
 		</h1>
 		<p class="text-[10px] text-center font-semibold text-zinc-700">
-			item id:${nanoid()}
+			item id:${uid}
 		</p>
 	</header>
-	<form id="edit-form" class="space-y-6 px-6 mb-12">
+	<form id="edit-form" class="space-y-6 px-6">
 		<!-- Category -->
 		<div>
 			<label class="text-xs pl-1.5 font-semibold" for="category">
@@ -34,6 +34,7 @@ function createItem(dialog) {
 			</label>
 			<input
 				id="category"
+				value="${category}"
 				type="text"
 				name="category"
 				placeholder="Item category"
@@ -46,6 +47,7 @@ function createItem(dialog) {
 			<label class="text-xs pl-1.5 font-semibold" for="status">Status</label>
 			<input
 				id="status"
+				value="${status}"
 				name="status"
 				type="text"
 				placeholder="Item Status"
@@ -61,7 +63,9 @@ function createItem(dialog) {
 				name="todo"
 				maxlength="75"
 				class="w-full border border-zinc-400 px-3 py-2 text-sm rounded-md resize-none placeholder:text-zinc-500 placeholder:text-xs"
-				placeholder="Item text description maximum 75 characters."></textarea>
+				placeholder="Item text description maximum 75 characters.">
+${todo}</textarea
+			>
 		</div>
 
 		<!-- Submit Button -->
@@ -76,7 +80,7 @@ function createItem(dialog) {
 				id="submit"
 				type="submit"
 				class="inline-block rounded-lg w-full bg-zinc-700 px-5 py-3 font-medium text-white">
-				Create Item
+				Update Item
 			</button>
 		</div>
 	</form>
@@ -84,7 +88,7 @@ function createItem(dialog) {
 `
 	const item = toElement(template)
 
-	item.querySelector('#edit-form').addEventListener('submit', onEditItem, false)
+	item.querySelector('#create-form').addEventListener('submit', onUpdateItem, false)
 	item.querySelector('#exit').addEventListener('click', onCloseDialog, false)
 	item.querySelector('#close').addEventListener('click', onCloseDialog, false)
 
@@ -96,7 +100,7 @@ function onCloseDialog(e) {
 	dialogElem.close()
 }
 
-function onEditItem(e, data) {
+function onUpdateItem(e) {
 	e.preventDefault()
 	e.stopImmediatePropagation()
 	console.log('update the item')
@@ -108,4 +112,4 @@ function onEditItem(e, data) {
 // call update on our state
 // call update on firebase data method
 
-export { createItem }
+export {editView}

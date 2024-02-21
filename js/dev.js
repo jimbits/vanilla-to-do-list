@@ -1,8 +1,8 @@
-import { read } from './lib/firebase/api/read'
-import { edit } from './lib/firebase/api/update'
-import { updateItem } from './templates/updateItem'
-import { createItem } from './templates/createItem'
-import { deleteItem } from './templates/deleteItem'
+import {read} from './models/readModel'
+import {edit} from './models/updateModel'
+import {updateItem} from './views/updateView'
+import {createItem} from './views/createView'
+import {deleteItem} from './views/deleteView'
 async function appInit() {
 	const rtdbData = await read(10)
 	const todos = Object.entries(rtdbData).slice(0, 9)
@@ -48,13 +48,13 @@ function onCloseModal(e) {
 
 function addModalContent(type) {
 	if (type === 'edit') {
-		const dataObject = { ...testData, dialog }
+		const dataObject = {...testData, dialog}
 		dialog.append(updateItem(dataObject, dialog))
 		dialog.showModal()
 	}
 
 	if (type === 'delete') {
-		dialog.append(deleteItem({ ...testData, dialog }))
+		dialog.append(deleteItem({...testData, dialog}))
 		dialog.showModal()
 	}
 

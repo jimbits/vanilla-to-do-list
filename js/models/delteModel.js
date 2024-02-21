@@ -1,5 +1,5 @@
-import { ref, remove } from 'firebase/database'
-import { db } from './../config/firebaseInit'
+import {ref, remove} from 'firebase/database'
+import {db} from '../lib/firebase/config/firebaseInit'
 function deleteItem(key) {
 	//  key parameter  -NqjK3rt8coCDGMsn7zX
 
@@ -12,4 +12,4 @@ function deleteItem(key) {
 	remove(dbRef)
 }
 
-export { deleteItem }
+export {deleteItem}

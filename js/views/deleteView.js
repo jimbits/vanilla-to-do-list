@@ -1,6 +1,7 @@
-import { toElement } from '../lib/utils/toElement'
+import {toElement} from '../lib/utils/toElement'
+import {nanoid} from 'nanoid'
 let dialogElem
-function deleteItem({ uid, todo, status, category, dialog }) {
+function deleteItem({uid, todo, status, category, dialog}) {
 	dialogElem = dialog
 	const template = `
     <section
@@ -44,4 +45,4 @@ function onCloseDialog(e) {
 function onDeleteItem(e) {
 	console.log('Item Deleted')
 }
-export { deleteItem }
+export {deleteItem}

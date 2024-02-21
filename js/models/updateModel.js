@@ -1,5 +1,5 @@
-import { ref, update, child } from 'firebase/database'
-import { db } from './../config/firebaseInit'
+import {ref, update, child} from 'firebase/database'
+import {db} from '../lib/firebase/config/firebaseInit'
 
 /* 
     key
@@ -21,4 +21,4 @@ function edit(key, newToDoObject) {
 	update(dbRef, updateObject)
 }
 
-export { edit }
+export {edit}

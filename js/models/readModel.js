@@ -1,5 +1,5 @@
-import { ref, get } from 'firebase/database'
-import { db } from '../config/firebaseInit'
+import {ref, get} from 'firebase/database'
+import {db} from '../lib/firebase/config/firebaseInit'
 
 async function read() {
 	const dbRef = ref(db, '/todos')
@@ -18,4 +18,4 @@ async function readSingleItem(key) {
 	return await dataSnapshot.val()
 }
 
-export { read, readSingleItem }
+export {read, readSingleItem}
