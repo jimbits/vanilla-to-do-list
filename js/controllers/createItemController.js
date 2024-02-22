@@ -1,5 +1,5 @@
-import {createNew} from '../models/createModel'
-import {createView} from '../views/createView'
+import {createItemModel} from '../models/createItemModel'
+import {createDialog} from '../views/createDialogView'
 
 // References to the create view and model
 
@@ -11,15 +11,17 @@ let view
 let dialog
 let spinner
 
-function createController() {
+function createItemController() {
 	config()
 	addEventHandlers()
 }
 
 function config() {
-	view = createView()
+	view = createDialog()
 	spinner = document.querySelector('#spinner')
 	dialog = document.querySelector('#dialog')
+	dialog.addEventListener('edit', (e) => console.log(e.detail.action))
+	dialog.addEventListener('delete', (e) => console.log(e.detail.action))
 	addButton = document.querySelector('#newItem')
 	exitButton = view.querySelector('#exit')
 	closeButton = view.querySelector('#close')
@@ -33,10 +35,9 @@ function addEventHandlers() {
 }
 
 const onCreateNewItem = (e) => {
-	console.log('shit')
 	e.preventDefault()
 	e.stopPropagation()
-	console.log(e.type)
+
 	const todo = e.currentTarget.elements.namedItem('todo').value
 	const category = e.currentTarget.elements.namedItem('category').value
 	const status = e.currentTarget.elements.namedItem('status').value
@@ -47,7 +48,7 @@ const onCreateNewItem = (e) => {
 	}
 
 	spinner.classList.remove('hidden')
-	createNew(payload)
+	createItemModel(payload)
 		.then(() => {
 			spinner.classList.add('hidden')
 		})
@@ -69,4 +70,4 @@ const onShowDialog = (e) => {
 	dialog.showModal()
 }
 
-export {createController}
+export {createItemController}

@@ -1,6 +1,6 @@
 import {toElement} from '../lib/utils/toElement'
 
-function createView() {
+function createDialog() {
 	const template = `
 	<section class="w-full pb-14">
 	<nav class="flex flex-end mb-8">
@@ -61,4 +61,4 @@ function createView() {
 	return toElement(template)
 }
 
-export {createView}
+export {createDialog}

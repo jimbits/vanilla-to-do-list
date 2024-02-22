@@ -1,8 +1,6 @@
 import {toElement} from '../lib/utils/toElement'
-import {nanoid} from 'nanoid'
-let dialogElem
-function deleteItem({uid, todo, status, category, dialog}) {
-	dialogElem = dialog
+
+function deleteDialog() {
 	const template = `
     <section
     class="w-full  flex flex-col justify-center py-14 ">
@@ -11,12 +9,12 @@ function deleteItem({uid, todo, status, category, dialog}) {
         <h1 class="text-center font-semibold text-zinc-700 text-3xl">
             Delete To Do Item
         </h1>
-        <p class="text-[10px] text-center font-semibold text-zinc-700">id:${uid}</p>
+        <p class="text-[10px] text-center font-semibold text-zinc-700">id:</p>
     </header>
 
     <footer class="flex items-center gap-4 w-4/5 mx-auto">
         <button
-            id="close"
+            id="exit"
             type="button"
             class="rounded-lg w-full border border-zinc-700 px-5 py-2 font-medium text-zinc-700 text-lg">
             Exit
@@ -30,19 +28,7 @@ function deleteItem({uid, todo, status, category, dialog}) {
     </footer>
 </section>
     `
-	const item = toElement(template)
-	console.log(item.querySelector('#close'))
-	item.querySelector('#close').addEventListener('click', onCloseDialog)
-	item.querySelector('#delete').addEventListener('click', onDeleteItem)
-	// return item
-	return item
-}
-function onCloseDialog(e) {
-	dialogElem.innerHTML = null
-	dialogElem.close()
+	return toElement(template)
 }
 
-function onDeleteItem(e) {
-	console.log('Item Deleted')
-}
-export {deleteItem}
+export {deleteDialog}

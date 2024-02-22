@@ -7,6 +7,12 @@ async function read() {
 	return await dataSnapshot.val()
 }
 
+async function getAllData() {
+	const dbRef = ref(db, '/todos')
+	const dataSnapshot = await get(dbRef)
+	return await dataSnapshot.val()
+}
+
 async function readSingleItem(key) {
 	// get a test key from your data
 	// example -Nq0-HLET3bKpFk73tMf
@@ -18,4 +24,4 @@ async function readSingleItem(key) {
 	return await dataSnapshot.val()
 }
 
-export {read, readSingleItem}
+export {read, readSingleItem, getAllData}

@@ -2,7 +2,7 @@ import {toElement} from '../lib/utils/toElement'
 
 let dialogElem
 
-function editView({todo, category, status, uid, dialog}) {
+function updateDialog({todo, category, status, uid, dialog}) {
 	dialogElem = dialog
 
 	const template = `
@@ -112,4 +112,4 @@ function onUpdateItem(e) {
 // call update on our state
 // call update on firebase data method
 
-export {editView}
+export {updateDialog}

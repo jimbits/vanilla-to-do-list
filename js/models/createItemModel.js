@@ -1,8 +1,8 @@
 import {ref, set, update, child, push, onChildAdded} from 'firebase/database'
 
-import {db} from './../lib/firebase/config/firebaseInit'
+import {db} from '../lib/firebase/config/firebaseInit'
 
-async function createNew(payload) {
+async function createItemModel(payload) {
 	const newItem = payload
 	// ref(path) to the db where you want add the new item
 	// db/todo
@@ -14,4 +14,4 @@ async function createNew(payload) {
 	return set(child(dbRef, key), payload)
 }
 
-export {createNew}
+export {createItemModel}
