@@ -1,3 +1,0 @@
-function editController() {}
-
-export {editController}

@@ -1,14 +1,11 @@
 import {toElement} from '../lib/utils/toElement'
 
-function toDoItem({todo, category, status, uid, description}) {
+function toDoItemTemplate({todo, category, status, uid}) {
 	const template = `
     <aside class="bg-gradient-to-r mb-3 from-white from-30% to-zinc-100/50 to-40%   py-2 pl-5 pr-3  border-l-4  border-b border-b-zinc-100 border-zinc-400/60">
-    <nav class="flex items-center justify-between mb-2">
-        <div class="text-center">
-            <h2 class="w-fit text-xs text-zinc-400 font-semibold leading-[10px]">${category}</h2>
-            <p class="text-[10px] text-gray-500 font-extralight">${status}</p>
-        </div>
-        <div>
+    <nav class="flex items-center justify-end ">
+ 
+   
             <button id="edit" data-uid="${uid}">
                 <svg  class="pointer-events-none w-4 h-4 fill-zinc-400 stroke-current stroke-0 hover:fill-zinc-500" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path
@@ -24,11 +21,14 @@ function toDoItem({todo, category, status, uid, description}) {
                         d="M17 6V5C17 3.89543 16.1046 3 15 3H9C7.89543 3 7 3.89543 7 5V6H4C3.44772 6 3 6.44772 3 7C3 7.55228 3.44772 8 4 8H5V19C5 20.6569 6.34315 22 8 22H16C17.6569 22 19 20.6569 19 19V8H20C20.5523 8 21 7.55228 21 7C21 6.44772 20.5523 6 20 6H17ZM15 5H9V6H15V5ZM17 8H7V19C7 19.5523 7.44772 20 8 20H16C16.5523 20 17 19.5523 17 19V8Z"></path>
                 </svg>
             </button>
-        </div>
+       
     </nav>
+    <h2 class="w-fit text-xs text-zinc-400 font-semibold leading-[10px]">${category}</h2>
+    <p class="text-[10px] text-gray-500 font-extralight">${status}</p>
+            <p class="text-xs text-zinc-700 font-bold   ">${todo}</p>
 
-    <p class="text-xs text-zinc-700 font-bold ">${todo}</p>
-    <p class="text-xs text-zinc-400 mb-2">${description}</p>
+   
+    
 </aside>
     `
 	// convert template literal to element why?
@@ -36,4 +36,4 @@ function toDoItem({todo, category, status, uid, description}) {
 	return toElement(template)
 }
 
-export {toDoItem}
+export {toDoItemTemplate}

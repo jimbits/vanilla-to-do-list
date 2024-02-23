@@ -1,8 +1,8 @@
 import {read} from './models/readItemModel'
 import {edit} from './models/updateItemModel'
-import {updateItem} from './views/updateDialogView'
-import {createItem} from './views/createDialogView'
-import {deleteItem} from './views/deleteDialogView'
+import {updateItem} from './templates/updateFormTemplate'
+import {createItem} from './templates/remove-createDialogView'
+import {deleteItem} from './templates/deleteDialogView'
 async function appInit() {
 	const rtdbData = await read(10)
 	const todos = Object.entries(rtdbData).slice(0, 9)

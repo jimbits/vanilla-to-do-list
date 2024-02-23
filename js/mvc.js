@@ -1,6 +1,8 @@
-import {toDoListController} from './controllers/toDoListController'
-import {dialogController} from './controllers/dialogController'
+import {toDoController} from './controllers/toDoController'
 import {addNewItemController} from './controllers/addNewItemController'
+import {createDialogController} from './controllers/createDialogController'
+import {deleteDialogController} from './controllers/deleteDialogController'
+import {updateDialogController} from './controllers/updateDialogController'
 import {createStore} from './store'
 
 // const createController = createItemController()
@@ -9,9 +11,11 @@ import {createStore} from './store'
 const appInit = async () => {
 	const loaded = await createStore()
 	if (loaded) {
-		toDoListController()
+		deleteDialogController()
+		toDoController()
 		addNewItemController()
-		dialogController()
+		createDialogController()
+		updateDialogController()
 	}
 }
 
