@@ -1,3 +1,1 @@
-import {toDoListView} from './views/toDoListView'
-
-toDoListView()
+// index.js
